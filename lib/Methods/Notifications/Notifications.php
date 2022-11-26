@@ -1,8 +1,8 @@
 <?php
 
-namespace Fundevogel\Mastodon\Methods\Notifications;
+namespace MrWilsonsWorkshop\Mastodon\Methods\Notifications;
 
-use Fundevogel\Mastodon\Methods\Method;
+use MrWilsonsWorkshop\Mastodon\Methods\Method;
 
 
 /**
@@ -45,7 +45,7 @@ class Notifications extends Method
         $endpoint = "{$this->endpoint}";
 
         return array_map(function ($data) {
-            return new \Fundevogel\Mastodon\Entities\Notification($data);
+            return new \MrWilsonsWorkshop\Mastodon\Entities\Notification($data);
         }, $this->api->get($endpoint, [
             'max_id'        => $maxID,
             'since_id'      => $sinceID,
@@ -64,13 +64,13 @@ class Notifications extends Method
      *
      * @param string $id ID of the notification in the database
      *
-     * @return \Fundevogel\Mastodon\Entities\Notification Notification
+     * @return \MrWilsonsWorkshop\Mastodon\Entities\Notification Notification
      */
-    public function get(string $id): \Fundevogel\Mastodon\Entities\Notification
+    public function get(string $id): \MrWilsonsWorkshop\Mastodon\Entities\Notification
     {
         $endpoint = "{$this->endpoint}/{$id}";
 
-        return new \Fundevogel\Mastodon\Entities\Notification($this->api->get($endpoint));
+        return new \MrWilsonsWorkshop\Mastodon\Entities\Notification($this->api->get($endpoint));
     }
 
 

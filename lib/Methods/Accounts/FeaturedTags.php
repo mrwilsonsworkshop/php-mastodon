@@ -1,8 +1,8 @@
 <?php
 
-namespace Fundevogel\Mastodon\Methods\Accounts;
+namespace MrWilsonsWorkshop\Mastodon\Methods\Accounts;
 
-use Fundevogel\Mastodon\Methods\Method;
+use MrWilsonsWorkshop\Mastodon\Methods\Method;
 
 
 /**
@@ -32,7 +32,7 @@ class FeaturedTags extends Method
         $endpoint = "{$this->endpoint}";
 
         return array_map(function ($data) {
-            return new \Fundevogel\Mastodon\Entities\FeaturedTag($data);
+            return new \MrWilsonsWorkshop\Mastodon\Entities\FeaturedTag($data);
         }, $this->api->get($endpoint));
     }
 
@@ -42,13 +42,13 @@ class FeaturedTags extends Method
      *
      * @param string $name The hashtag to be featured
      *
-     * @return \Fundevogel\Mastodon\Entities\FeaturedTag FeaturedTag
+     * @return \MrWilsonsWorkshop\Mastodon\Entities\FeaturedTag FeaturedTag
      */
-    public function feature(string $name): \Fundevogel\Mastodon\Entities\FeaturedTag
+    public function feature(string $name): \MrWilsonsWorkshop\Mastodon\Entities\FeaturedTag
     {
         $endpoint = "{$this->endpoint}";
 
-        return new \Fundevogel\Mastodon\Entities\FeaturedTag($this->api->post($endpoint, [
+        return new \MrWilsonsWorkshop\Mastodon\Entities\FeaturedTag($this->api->post($endpoint, [
             'name' => $name,
         ]));
     }
@@ -81,7 +81,7 @@ class FeaturedTags extends Method
         $endpoint = "{$this->endpoint}/suggestions";
 
         return array_map(function ($data) {
-            return new \Fundevogel\Mastodon\Entities\Tag($data);
+            return new \MrWilsonsWorkshop\Mastodon\Entities\Tag($data);
         }, $this->api->get($endpoint));
     }
 }

@@ -1,8 +1,8 @@
 <?php
 
-namespace Fundevogel\Mastodon\Methods\Accounts;
+namespace MrWilsonsWorkshop\Mastodon\Methods\Accounts;
 
-use Fundevogel\Mastodon\Methods\Method;
+use MrWilsonsWorkshop\Mastodon\Methods\Method;
 
 
 /**
@@ -25,13 +25,13 @@ class Filters extends Method
     /**
      * View all filters
      *
-     * @return \Fundevogel\Mastodon\Entities\Filter Filter
+     * @return \MrWilsonsWorkshop\Mastodon\Entities\Filter Filter
      */
-    public function all(): \Fundevogel\Mastodon\Entities\Filter
+    public function all(): \MrWilsonsWorkshop\Mastodon\Entities\Filter
     {
         $endpoint = "{$this->endpoint}";
 
-        return new \Fundevogel\Mastodon\Entities\Filter($this->api->get($endpoint));
+        return new \MrWilsonsWorkshop\Mastodon\Entities\Filter($this->api->get($endpoint));
     }
 
 
@@ -40,13 +40,13 @@ class Filters extends Method
      *
      * @param string $id
      *
-     * @return \Fundevogel\Mastodon\Entities\Filter Filter
+     * @return \MrWilsonsWorkshop\Mastodon\Entities\Filter Filter
      */
-    public function get(string $id): \Fundevogel\Mastodon\Entities\Filter
+    public function get(string $id): \MrWilsonsWorkshop\Mastodon\Entities\Filter
     {
         $endpoint = "{$this->endpoint}/{$id}";
 
-        return new \Fundevogel\Mastodon\Entities\Filter($this->api->get($endpoint));
+        return new \MrWilsonsWorkshop\Mastodon\Entities\Filter($this->api->get($endpoint));
     }
 
 
@@ -59,13 +59,13 @@ class Filters extends Method
      * @param bool $wholeWord Consider word boundaries?
      * @param int $expiresIn Number of seconds from now the filter should expire. Otherwise, null for a filter that doesn't expire
      *
-     * @return \Fundevogel\Mastodon\Entities\Filter Filter
+     * @return \MrWilsonsWorkshop\Mastodon\Entities\Filter Filter
      */
-    public function create(string $phrase, array $context, bool $irreversible = false, bool $wholeWord = true, int $expiresIn = 0): \Fundevogel\Mastodon\Entities\Filter
+    public function create(string $phrase, array $context, bool $irreversible = false, bool $wholeWord = true, int $expiresIn = 0): \MrWilsonsWorkshop\Mastodon\Entities\Filter
     {
         $endpoint = "{$this->endpoint}";
 
-        return new \Fundevogel\Mastodon\Entities\Filter($this->api->post($endpoint, [
+        return new \MrWilsonsWorkshop\Mastodon\Entities\Filter($this->api->post($endpoint, [
             'phrase'       => $phrase,
             'context'      => $context,
             'irreversible' => $irreversible,
@@ -85,13 +85,13 @@ class Filters extends Method
      * @param bool $wholeWord Consider word boundaries?
      * @param int $expiresIn Number of seconds from now the filter should expire. Otherwise, null for a filter that doesn't expire
      *
-     * @return \Fundevogel\Mastodon\Entities\Filter Filter
+     * @return \MrWilsonsWorkshop\Mastodon\Entities\Filter Filter
      */
-    public function update(string $id, string $phrase, array $context, bool $irreversible, bool $wholeWord, int $expiresIn): \Fundevogel\Mastodon\Entities\Filter
+    public function update(string $id, string $phrase, array $context, bool $irreversible, bool $wholeWord, int $expiresIn): \MrWilsonsWorkshop\Mastodon\Entities\Filter
     {
         $endpoint = "{$this->endpoint}/{$id}";
 
-        return new \Fundevogel\Mastodon\Entities\Filter($this->api->put($endpoint));
+        return new \MrWilsonsWorkshop\Mastodon\Entities\Filter($this->api->put($endpoint));
     }
 
 
@@ -100,12 +100,12 @@ class Filters extends Method
      *
      * @param string $id ID of the filter in the database
      *
-     * @return \Fundevogel\Mastodon\Entities\Filter Filter
+     * @return \MrWilsonsWorkshop\Mastodon\Entities\Filter Filter
      */
-    public function remove(string $id): \Fundevogel\Mastodon\Entities\Filter
+    public function remove(string $id): \MrWilsonsWorkshop\Mastodon\Entities\Filter
     {
         $endpoint = "{$this->endpoint}/{$id}";
 
-        return new \Fundevogel\Mastodon\Entities\Filter($this->api->delete($endpoint));
+        return new \MrWilsonsWorkshop\Mastodon\Entities\Filter($this->api->delete($endpoint));
     }
 }

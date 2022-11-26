@@ -1,8 +1,8 @@
 <?php
 
-namespace Fundevogel\Mastodon\Methods\Timelines;
+namespace MrWilsonsWorkshop\Mastodon\Methods\Timelines;
 
-use Fundevogel\Mastodon\Methods\Method;
+use MrWilsonsWorkshop\Mastodon\Methods\Method;
 
 
 /**
@@ -27,13 +27,13 @@ class Markers extends Method
      *
      * @param array $timeline Array of markers to fetch. String enum anyOf `home`, `notifications`. If not provided, an empty object will be returned
      *
-     * @return \Fundevogel\Mastodon\Entities\Marker Marker
+     * @return \MrWilsonsWorkshop\Mastodon\Entities\Marker Marker
      */
-    public function get(array $timeline): \Fundevogel\Mastodon\Entities\Marker
+    public function get(array $timeline): \MrWilsonsWorkshop\Mastodon\Entities\Marker
     {
         $endpoint = "{$this->endpoint}";
 
-        return new \Fundevogel\Mastodon\Entities\Marker($this->api->get($endpoint, [
+        return new \MrWilsonsWorkshop\Mastodon\Entities\Marker($this->api->get($endpoint, [
             'timeline' => $timeline,
         ]));
     }
@@ -45,13 +45,13 @@ class Markers extends Method
      * @param string $homeLastReadID ID of the last status read in the home timeline
      * @param string $notificationsLastReadID ID of the last notification read
      *
-     * @return \Fundevogel\Mastodon\Entities\Marker Marker
+     * @return \MrWilsonsWorkshop\Mastodon\Entities\Marker Marker
      */
-    public function save(string $homeLastReadID = '', string $notificationsLastReadID = ''): \Fundevogel\Mastodon\Entities\Marker
+    public function save(string $homeLastReadID = '', string $notificationsLastReadID = ''): \MrWilsonsWorkshop\Mastodon\Entities\Marker
     {
         $endpoint = "{$this->endpoint}";
 
-        return new \Fundevogel\Mastodon\Entities\Marker($this->api->post($endpoint, [
+        return new \MrWilsonsWorkshop\Mastodon\Entities\Marker($this->api->post($endpoint, [
             'home[last_read_id]' => $title,
             'notifications[last_read_id]' => $notificationsLastReadID,
         ]));

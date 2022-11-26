@@ -1,8 +1,8 @@
 <?php
 
-namespace Fundevogel\Mastodon\Entities;
+namespace MrWilsonsWorkshop\Mastodon\Entities;
 
-use Fundevogel\Mastodon\Entities\Entity;
+use MrWilsonsWorkshop\Mastodon\Entities\Entity;
 
 
 /**

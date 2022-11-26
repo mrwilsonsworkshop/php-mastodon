@@ -1,8 +1,8 @@
 <?php
 
-namespace Fundevogel\Mastodon\Methods\Accounts;
+namespace MrWilsonsWorkshop\Mastodon\Methods\Accounts;
 
-use Fundevogel\Mastodon\Methods\Method;
+use MrWilsonsWorkshop\Mastodon\Methods\Method;
 
 
 /**

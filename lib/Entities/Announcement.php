@@ -1,8 +1,8 @@
 <?php
 
-namespace Fundevogel\Mastodon\Entities;
+namespace MrWilsonsWorkshop\Mastodon\Entities;
 
-use Fundevogel\Mastodon\Entities\Entity;
+use MrWilsonsWorkshop\Mastodon\Entities\Entity;
 
 
 /**
@@ -102,7 +102,7 @@ class Announcement extends Entity {
     public function reactions(): array
     {
         return array_map(function ($data) {
-            return new \Fundevogel\Mastodon\Entities\AnnouncementReaction($data);
+            return new \MrWilsonsWorkshop\Mastodon\Entities\AnnouncementReaction($data);
         }, $this->data['reactions']);
     }
 

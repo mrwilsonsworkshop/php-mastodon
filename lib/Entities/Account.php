@@ -1,8 +1,8 @@
 <?php
 
-namespace Fundevogel\Mastodon\Entities;
+namespace MrWilsonsWorkshop\Mastodon\Entities;
 
-use Fundevogel\Mastodon\Entities\Entity;
+use MrWilsonsWorkshop\Mastodon\Entities\Entity;
 
 
 /**
@@ -160,7 +160,7 @@ class Account extends Entity {
     public function emojis(): array
     {
         return array_map(function ($data) {
-            return new \Fundevogel\Mastodon\Entities\Emoji($data);
+            return new \MrWilsonsWorkshop\Mastodon\Entities\Emoji($data);
         }, $this->data['emojis']);
     }
 
@@ -242,11 +242,11 @@ class Account extends Entity {
     /**
      * Indicates that the profile is currently inactive and that its user has moved to a new account
      *
-     * @return \Fundevogel\Mastodon\Entities\Account Account
+     * @return \MrWilsonsWorkshop\Mastodon\Entities\Account Account
      */
-    public function moved(): \Fundevogel\Mastodon\Entities\Account
+    public function moved(): \MrWilsonsWorkshop\Mastodon\Entities\Account
     {
-        return new \Fundevogel\Mastodon\Entities\Account($this->data['moved']);
+        return new \MrWilsonsWorkshop\Mastodon\Entities\Account($this->data['moved']);
     }
 
 
@@ -258,7 +258,7 @@ class Account extends Entity {
     public function fields(): array
     {
         return array_map(function ($data) {
-            return new \Fundevogel\Mastodon\Entities\Field($data);
+            return new \MrWilsonsWorkshop\Mastodon\Entities\Field($data);
         }, $this->data['fields']);
     }
 
@@ -277,11 +277,11 @@ class Account extends Entity {
     /**
      * An extra entity to be used with API methods to verify credentials and update credentials
      *
-     * @return \Fundevogel\Mastodon\Entities\Source Source
+     * @return \MrWilsonsWorkshop\Mastodon\Entities\Source Source
      */
-    public function source(): \Fundevogel\Mastodon\Entities\Source
+    public function source(): \MrWilsonsWorkshop\Mastodon\Entities\Source
     {
-        return new \Fundevogel\Mastodon\Entities\Source($this->data['source']);
+        return new \MrWilsonsWorkshop\Mastodon\Entities\Source($this->data['source']);
     }
 
 

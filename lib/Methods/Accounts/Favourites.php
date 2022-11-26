@@ -1,8 +1,8 @@
 <?php
 
-namespace Fundevogel\Mastodon\Methods\Accounts;
+namespace MrWilsonsWorkshop\Mastodon\Methods\Accounts;
 
-use Fundevogel\Mastodon\Methods\Method;
+use MrWilsonsWorkshop\Mastodon\Methods\Method;
 
 
 /**
@@ -38,7 +38,7 @@ class Favourites extends Method
         $endpoint = "{$this->endpoint}";
 
         return array_map(function () {
-            return new \Fundevogel\Mastodon\Entities\Status($data);
+            return new \MrWilsonsWorkshop\Mastodon\Entities\Status($data);
         }, $this->api->get($endpoint, [
             'limit'  => $limit,
             'min_id' => $minID,

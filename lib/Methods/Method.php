@@ -1,6 +1,6 @@
 <?php
 
-namespace Fundevogel\Mastodon\Methods;
+namespace MrWilsonsWorkshop\Mastodon\Methods;
 
 
 /**
@@ -13,7 +13,7 @@ abstract class Method
     /**
      * API gateway
      *
-     * @var \Fundevogel\Mastodon\Api
+     * @var \MrWilsonsWorkshop\Mastodon\Api
      */
     protected $api;
 
@@ -21,7 +21,7 @@ abstract class Method
     /**
      * Constructor
      */
-    public function __construct(\Fundevogel\Mastodon\Api $api)
+    public function __construct(\MrWilsonsWorkshop\Mastodon\Api $api)
     {
         # Relay API access
         $this->api = $api;

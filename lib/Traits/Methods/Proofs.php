@@ -1,15 +1,15 @@
 <?php
 
-namespace Fundevogel\Mastodon\Traits\Methods;
+namespace MrWilsonsWorkshop\Mastodon\Traits\Methods;
 
 
 trait Proofs
 {
     /**
-     * @return \Fundevogel\Mastodon\Methods\Proofs\Proofs;
+     * @return \MrWilsonsWorkshop\Mastodon\Methods\Proofs\Proofs;
      */
-    public function proofs(): \Fundevogel\Mastodon\Methods\Proofs\Proofs
+    public function proofs(): \MrWilsonsWorkshop\Mastodon\Methods\Proofs\Proofs
     {
-        return new \Fundevogel\Mastodon\Methods\Proofs\Proofs($this);
+        return new \MrWilsonsWorkshop\Mastodon\Methods\Proofs\Proofs($this);
     }
 }

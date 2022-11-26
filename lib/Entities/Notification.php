@@ -1,8 +1,8 @@
 <?php
 
-namespace Fundevogel\Mastodon\Entities;
+namespace MrWilsonsWorkshop\Mastodon\Entities;
 
-use Fundevogel\Mastodon\Entities\Entity;
+use MrWilsonsWorkshop\Mastodon\Entities\Entity;
 
 
 /**
@@ -62,11 +62,11 @@ class Notification extends Entity {
     /**
      * The account that performed the action that generated the notification
      *
-     * @return \Fundevogel\Mastodon\Entities\Account Account
+     * @return \MrWilsonsWorkshop\Mastodon\Entities\Account Account
      */
-    public function account(): \Fundevogel\Mastodon\Entities\Account
+    public function account(): \MrWilsonsWorkshop\Mastodon\Entities\Account
     {
-        return new \Fundevogel\Mastodon\Entities\Account($this->data['account']);
+        return new \MrWilsonsWorkshop\Mastodon\Entities\Account($this->data['account']);
     }
 
 
@@ -77,7 +77,7 @@ class Notification extends Entity {
     /**
      * Status that was the object of the notification, e.g. in mentions, reblogs, favourites, or polls
      *
-     * @return null|\Fundevogel\Mastodon\Entities\Status
+     * @return null|\MrWilsonsWorkshop\Mastodon\Entities\Status
      */
     public function status()
     {
@@ -87,6 +87,6 @@ class Notification extends Entity {
             return null;
         }
 
-        return new \Fundevogel\Mastodon\Entities\Status($this->data['status']);
+        return new \MrWilsonsWorkshop\Mastodon\Entities\Status($this->data['status']);
     }
 }

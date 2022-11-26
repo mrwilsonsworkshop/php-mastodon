@@ -1,8 +1,8 @@
 <?php
 
-namespace Fundevogel\Mastodon\Methods\Timelines;
+namespace MrWilsonsWorkshop\Mastodon\Methods\Timelines;
 
-use Fundevogel\Mastodon\Methods\Method;
+use MrWilsonsWorkshop\Mastodon\Methods\Method;
 
 
 /**
@@ -40,7 +40,7 @@ class Timelines extends Method
         $endpoint = "{$this->endpoint}/public";
 
         return array_map(function ($data) {
-            return new \Fundevogel\Mastodon\Entities\Status($data);
+            return new \MrWilsonsWorkshop\Mastodon\Entities\Status($data);
         }, $this->api->get($endpoint, [
             'local'      => $local,
             'remote'     => $remote,
@@ -73,7 +73,7 @@ class Timelines extends Method
         $endpoint = "{$this->endpoint}/tag/{$hashtag}";
 
         return array_map(function ($data) {
-            return new \Fundevogel\Mastodon\Entities\Status($data);
+            return new \MrWilsonsWorkshop\Mastodon\Entities\Status($data);
         }, $this->api->get($endpoint, [
             'local'      => $local,
             'only_media' => $onlyMedia,
@@ -103,7 +103,7 @@ class Timelines extends Method
         $endpoint = "{$this->endpoint}/home";
 
         return array_map(function ($data) {
-            return new \Fundevogel\Mastodon\Entities\Status($data);
+            return new \MrWilsonsWorkshop\Mastodon\Entities\Status($data);
         }, $this->api->get($endpoint, [
             'local'    => $local,
             'max_id'   => $maxID,
@@ -132,7 +132,7 @@ class Timelines extends Method
         $endpoint = "{$this->endpoint}/list/{$id}";
 
         return array_map(function ($data) {
-            return new \Fundevogel\Mastodon\Entities\Status($data);
+            return new \MrWilsonsWorkshop\Mastodon\Entities\Status($data);
         }, $this->api->get($endpoint, [
             'max_id'   => $maxID,
             'since_id' => $sinceID,

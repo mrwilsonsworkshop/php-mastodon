@@ -1,8 +1,8 @@
 <?php
 
-namespace Fundevogel\Mastodon\Entities;
+namespace MrWilsonsWorkshop\Mastodon\Entities;
 
-use Fundevogel\Mastodon\Entities\Entity;
+use MrWilsonsWorkshop\Mastodon\Entities\Entity;
 
 
 /**
@@ -39,7 +39,7 @@ class Source extends Entity {
     public function fields(): array
     {
         return array_map(function ($data) {
-            return new \Fundevogel\Mastodon\Entities\Field($data);
+            return new \MrWilsonsWorkshop\Mastodon\Entities\Field($data);
         }, $this->data['fields']);
     }
 

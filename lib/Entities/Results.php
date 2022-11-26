@@ -1,8 +1,8 @@
 <?php
 
-namespace Fundevogel\Mastodon\Entities;
+namespace MrWilsonsWorkshop\Mastodon\Entities;
 
-use Fundevogel\Mastodon\Entities\Entity;
+use MrWilsonsWorkshop\Mastodon\Entities\Entity;
 
 
 /**
@@ -25,7 +25,7 @@ class Results extends Entity {
     public function accounts(): array
     {
         return array_map(function ($data) {
-            return new \Fundevogel\Mastodon\Entities\Account($data);
+            return new \MrWilsonsWorkshop\Mastodon\Entities\Account($data);
         }, $this->data['accounts']);
     }
 
@@ -38,7 +38,7 @@ class Results extends Entity {
     public function statuses(): array
     {
         return array_map(function ($data) {
-            return new \Fundevogel\Mastodon\Entities\Status($data);
+            return new \MrWilsonsWorkshop\Mastodon\Entities\Status($data);
         }, $this->data['statuses']);
     }
 
@@ -51,7 +51,7 @@ class Results extends Entity {
     public function hashtags(): array
     {
         return array_map(function ($data) {
-            return new \Fundevogel\Mastodon\Entities\Tag($data);
+            return new \MrWilsonsWorkshop\Mastodon\Entities\Tag($data);
         }, $this->data['statuses']);
     }
 }

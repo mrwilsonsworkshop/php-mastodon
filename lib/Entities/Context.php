@@ -1,8 +1,8 @@
 <?php
 
-namespace Fundevogel\Mastodon\Entities;
+namespace MrWilsonsWorkshop\Mastodon\Entities;
 
-use Fundevogel\Mastodon\Entities\Entity;
+use MrWilsonsWorkshop\Mastodon\Entities\Entity;
 
 
 /**
@@ -27,7 +27,7 @@ class Context extends Entity {
     public function ancestors(): array
     {
         return array_map(function ($data) {
-            return new \Fundevogel\Mastodon\Entities\Status($data);
+            return new \MrWilsonsWorkshop\Mastodon\Entities\Status($data);
         }, $this->data['ancestors']);
     }
 
@@ -40,7 +40,7 @@ class Context extends Entity {
     public function descendants(): array
     {
         return array_map(function ($data) {
-            return new \Fundevogel\Mastodon\Entities\Status($data);
+            return new \MrWilsonsWorkshop\Mastodon\Entities\Status($data);
         }, $this->data['descendants']);
     }
 }

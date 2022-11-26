@@ -1,8 +1,8 @@
 <?php
 
-namespace Fundevogel\Mastodon\Methods\Instance;
+namespace MrWilsonsWorkshop\Mastodon\Methods\Instance;
 
-use Fundevogel\Mastodon\Methods\Method;
+use MrWilsonsWorkshop\Mastodon\Methods\Method;
 
 
 /**
@@ -36,7 +36,7 @@ class Trends extends Method
         $endpoint = "{$this->endpoint}";
 
         return array_map(function ($data) {
-            return new \Fundevogel\Mastodon\Entities\Tag($data);
+            return new \MrWilsonsWorkshop\Mastodon\Entities\Tag($data);
         }, $this->api->get($endpoint, [
             'limit' => $limit,
         ]));

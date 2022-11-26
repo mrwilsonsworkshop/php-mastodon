@@ -1,8 +1,8 @@
 <?php
 
-namespace Fundevogel\Mastodon\Methods\Timelines;
+namespace MrWilsonsWorkshop\Mastodon\Methods\Timelines;
 
-use Fundevogel\Mastodon\Methods\Method;
+use MrWilsonsWorkshop\Mastodon\Methods\Method;
 
 
 /**
@@ -39,7 +39,7 @@ class Conversations extends Method
         $endpoint = "{$this->endpoint}";
 
         return array_map(function ($data) {
-            return new \Fundevogel\Mastodon\Entities\Conversation($data);
+            return new \MrWilsonsWorkshop\Mastodon\Entities\Conversation($data);
         }, $this->api->get($endpoint, [
             'max_id'   => $maxID,
             'since_id' => $sinceID,
@@ -69,12 +69,12 @@ class Conversations extends Method
      *
      * @param string $id ID of the conversation in the database
      *
-     * @return \Fundevogel\Mastodon\Entities\Conversation Conversation
+     * @return \MrWilsonsWorkshop\Mastodon\Entities\Conversation Conversation
      */
-    public function read(string $id): \Fundevogel\Mastodon\Entities\Conversation
+    public function read(string $id): \MrWilsonsWorkshop\Mastodon\Entities\Conversation
     {
         $endpoint = "{$this->endpoint}/{$id}/read";
 
-        return new \Fundevogel\Mastodon\Entities\Conversation($this->api->post($endpoint));
+        return new \MrWilsonsWorkshop\Mastodon\Entities\Conversation($this->api->post($endpoint));
     }
 }

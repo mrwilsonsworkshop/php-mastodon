@@ -1,8 +1,8 @@
 <?php
 
-namespace Fundevogel\Mastodon\Methods\Accounts;
+namespace MrWilsonsWorkshop\Mastodon\Methods\Accounts;
 
-use Fundevogel\Mastodon\Methods\Method;
+use MrWilsonsWorkshop\Mastodon\Methods\Method;
 
 
 /**
@@ -36,7 +36,7 @@ class Blocks extends Method
         $endpoint = "{$this->endpoint}";
 
         return array_map(function ($data) {
-            return new \Fundevogel\Mastodon\Entities\Account($data);
+            return new \MrWilsonsWorkshop\Mastodon\Entities\Account($data);
         }, $this->api->get($endpoint, [
             'max_id'   => $maxID,
             'since_id' => $sinceID,

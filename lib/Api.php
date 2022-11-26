@@ -8,7 +8,7 @@
  * @version 0.6.0
  */
 
-namespace Fundevogel\Mastodon;
+namespace MrWilsonsWorkshop\Mastodon;
 
 
 class Api
@@ -431,61 +431,61 @@ class Api
      * 'Apps'
      */
 
-    use \Fundevogel\Mastodon\Traits\Methods\Apps;
+    use \MrWilsonsWorkshop\Mastodon\Traits\Methods\Apps;
 
 
     /**
      * 'Accounts'
      */
 
-    use \Fundevogel\Mastodon\Traits\Methods\Accounts;
+    use \MrWilsonsWorkshop\Mastodon\Traits\Methods\Accounts;
 
 
     /**
      * 'Statuses'
      */
 
-    use \Fundevogel\Mastodon\Traits\Methods\Statuses;
+    use \MrWilsonsWorkshop\Mastodon\Traits\Methods\Statuses;
 
 
     /**
      * 'Timelines'
      */
 
-    use \Fundevogel\Mastodon\Traits\Methods\Timelines;
+    use \MrWilsonsWorkshop\Mastodon\Traits\Methods\Timelines;
 
 
     /**
      * 'Notifications'
      */
 
-    use \Fundevogel\Mastodon\Traits\Methods\Notifications;
+    use \MrWilsonsWorkshop\Mastodon\Traits\Methods\Notifications;
 
 
     /**
      * 'Instance'
      */
 
-    use \Fundevogel\Mastodon\Traits\Methods\Instance;
+    use \MrWilsonsWorkshop\Mastodon\Traits\Methods\Instance;
 
 
     /**
      * 'Announcements'
      */
 
-    use \Fundevogel\Mastodon\Traits\Methods\Announcements;
+    use \MrWilsonsWorkshop\Mastodon\Traits\Methods\Announcements;
 
 
     /**
      * 'Proofs'
      */
 
-    use \Fundevogel\Mastodon\Traits\Methods\Proofs;
+    use \MrWilsonsWorkshop\Mastodon\Traits\Methods\Proofs;
 
 
     /**
      * 'OEmbed'
      */
 
-    use \Fundevogel\Mastodon\Traits\Methods\OEmbed;
+    use \MrWilsonsWorkshop\Mastodon\Traits\Methods\OEmbed;
 }

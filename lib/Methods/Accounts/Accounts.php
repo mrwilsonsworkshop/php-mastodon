@@ -1,8 +1,8 @@
 <?php
 
-namespace Fundevogel\Mastodon\Methods\Accounts;
+namespace MrWilsonsWorkshop\Mastodon\Methods\Accounts;
 
-use Fundevogel\Mastodon\Methods\Method;
+use MrWilsonsWorkshop\Mastodon\Methods\Method;
 
 
 /**
@@ -43,13 +43,13 @@ class Accounts extends Method
      * @param string $locale The language of the confirmation email that will be sent
      * @param string $reason Text that will be reviewed by moderators if registrations require manual approval
      *
-     * @return \Fundevogel\Mastodon\Entities\Token Token
+     * @return \MrWilsonsWorkshop\Mastodon\Entities\Token Token
      */
-    public function register(string $userName, string $email, string $password, bool $agreement, string $locale, string $reason = ''): \Fundevogel\Mastodon\Entities\Token
+    public function register(string $userName, string $email, string $password, bool $agreement, string $locale, string $reason = ''): \MrWilsonsWorkshop\Mastodon\Entities\Token
     {
         $endpoint = "{$this->endpoint}";
 
-        return new \Fundevogel\Mastodon\Entities\Token($api->post($endpoint, [
+        return new \MrWilsonsWorkshop\Mastodon\Entities\Token($api->post($endpoint, [
             'username'  => $userName,
             'email'     => $email,
             'password'  => $password,
@@ -65,13 +65,13 @@ class Accounts extends Method
      *
      * Test to make sure that the user token works
      *
-     * @return \Fundevogel\Mastodon\Entities\Account the user's own Account with Source
+     * @return \MrWilsonsWorkshop\Mastodon\Entities\Account the user's own Account with Source
      */
-    public function verifyCredentials(): \Fundevogel\Mastodon\Entities\Account
+    public function verifyCredentials(): \MrWilsonsWorkshop\Mastodon\Entities\Account
     {
         $endpoint = "{$this->endpoint}/verify_credentials";
 
-        return new \Fundevogel\Mastodon\Entities\Account($this->api->get($endpoint));
+        return new \MrWilsonsWorkshop\Mastodon\Entities\Account($this->api->get($endpoint));
     }
 
 
@@ -92,13 +92,13 @@ class Accounts extends Method
      * @param string $sourceLanguage Default language to use for authored statuses (ISO 6391)
      * @param array $fieldAttributes Profile metadata `name` and `value` (by default, max 4 fields and 255 characters per property/value)
      *
-     * @return \Fundevogel\Mastodon\Entities\Account the user's own Account with Source
+     * @return \MrWilsonsWorkshop\Mastodon\Entities\Account the user's own Account with Source
      */
-    public function updateCredentials(bool $discoverable = true, bool $bot = false, string $displayName = '', string $note = '', string $avatar = '', string $header = '', bool $locked = false, string $sourcePrivacy = '', bool $sourceSensitive = false, string $sourceLanguage = '', array $fieldAttributes = []): \Fundevogel\Mastodon\Entities\Account
+    public function updateCredentials(bool $discoverable = true, bool $bot = false, string $displayName = '', string $note = '', string $avatar = '', string $header = '', bool $locked = false, string $sourcePrivacy = '', bool $sourceSensitive = false, string $sourceLanguage = '', array $fieldAttributes = []): \MrWilsonsWorkshop\Mastodon\Entities\Account
     {
         $endpoint = "{$this->endpoint}/update_credentials";
 
-        return new \Fundevogel\Mastodon\Entities\Account($this->api->patch($endpoint, [
+        return new \MrWilsonsWorkshop\Mastodon\Entities\Account($this->api->patch($endpoint, [
             'discoverable'      => $discoverable,
             'bot'               => $bot,
             'display_name'      => $displayName,
@@ -123,9 +123,9 @@ class Accounts extends Method
      *
      * @param string $id The ID of the account in the database
      *
-     * @return \Fundevogel\Mastodon\Entities\Account Account
+     * @return \MrWilsonsWorkshop\Mastodon\Entities\Account Account
      */
-    public function get(string $id = ''): \Fundevogel\Mastodon\Entities\Account
+    public function get(string $id = ''): \MrWilsonsWorkshop\Mastodon\Entities\Account
     {
         # Fallback to current account
         if (empty($id)) {
@@ -134,7 +134,7 @@ class Accounts extends Method
 
         $endpoint = "{$this->endpoint}/{$id}";
 
-        return new \Fundevogel\Mastodon\Entities\Account($this->api->get($endpoint));
+        return new \MrWilsonsWorkshop\Mastodon\Entities\Account($this->api->get($endpoint));
     }
 
 
@@ -160,7 +160,7 @@ class Accounts extends Method
         $endpoint = "{$this->endpoint}/{$id}/statuses";
 
         return array_map(function ($data) {
-            return new \Fundevogel\Mastodon\Entities\Status($data);
+            return new \MrWilsonsWorkshop\Mastodon\Entities\Status($data);
         }, $this->api->get($endpoint, [
            'min_id'          => $minID,
            'exclude_reblogs' => $excludeReblogs,
@@ -191,7 +191,7 @@ class Accounts extends Method
         $endpoint = "{$this->endpoint}/{$id}/followers";
 
         return array_map(function ($data) {
-            return new \Fundevogel\Mastodon\Entities\Account($data);
+            return new \MrWilsonsWorkshop\Mastodon\Entities\Account($data);
         }, $this->api->get($endpoint, [
            'max_id'   => $maxID,
            'since_id' => $sinceID,
@@ -222,7 +222,7 @@ class Accounts extends Method
         $endpoint = "{$this->endpoint}/{$id}/following";
 
         return array_map(function ($data) {
-            return new \Fundevogel\Mastodon\Entities\Account($data);
+            return new \MrWilsonsWorkshop\Mastodon\Entities\Account($data);
         }, $this->api->get($endpoint, [
            'max_id'   => $maxID,
            'since_id' => $sinceID,
@@ -250,7 +250,7 @@ class Accounts extends Method
         $endpoint = "{$this->endpoint}/{$id}/featured_tags";
 
         return array_map(function ($data) {
-            return new \Fundevogel\Mastodon\Entities\Account($data);
+            return new \MrWilsonsWorkshop\Mastodon\Entities\Account($data);
         }, $this->api->get($endpoint));
     }
 
@@ -274,7 +274,7 @@ class Accounts extends Method
         $endpoint = "{$this->endpoint}/{$id}/lists";
 
         return array_map(function ($data) {
-            return new \Fundevogel\Mastodon\Entities\ListEntity($data);
+            return new \MrWilsonsWorkshop\Mastodon\Entities\ListEntity($data);
         }, $this->api->get($endpoint));
     }
 
@@ -296,7 +296,7 @@ class Accounts extends Method
         $endpoint = "{$this->endpoint}/{$id}/identity_proofs";
 
         return array_map(function ($data) {
-            return new \Fundevogel\Mastodon\Entities\IdentityProof($data);
+            return new \MrWilsonsWorkshop\Mastodon\Entities\IdentityProof($data);
         }, $this->api->get($endpoint));
     }
 
@@ -316,13 +316,13 @@ class Accounts extends Method
      * @param bool $reblogs Receive this account's reblogs in home timeline?
      * @param bool $notify Receive notifications when this account posts a status?
      *
-     * @return \Fundevogel\Mastodon\Entities\Relationship Relationship
+     * @return \MrWilsonsWorkshop\Mastodon\Entities\Relationship Relationship
      */
-    public function follow(string $id, bool $reblogs = true, bool $notify = false): \Fundevogel\Mastodon\Entities\Relationship
+    public function follow(string $id, bool $reblogs = true, bool $notify = false): \MrWilsonsWorkshop\Mastodon\Entities\Relationship
     {
         $endpoint = "{$this->endpoint}/{$id}/follow";
 
-        return new \Fundevogel\Mastodon\Entities\Relationship($this->api->post($endpoint, [
+        return new \MrWilsonsWorkshop\Mastodon\Entities\Relationship($this->api->post($endpoint, [
             'reblogs' => $reblogs,
             'notify'  => $notify,
         ]));
@@ -336,13 +336,13 @@ class Accounts extends Method
      *
      * @param string $id The ID of the account in the database
      *
-     * @return \Fundevogel\Mastodon\Entities\Relationship Relationship
+     * @return \MrWilsonsWorkshop\Mastodon\Entities\Relationship Relationship
      */
-    public function unfollow(string $id): \Fundevogel\Mastodon\Entities\Relationship
+    public function unfollow(string $id): \MrWilsonsWorkshop\Mastodon\Entities\Relationship
     {
         $endpoint = "{$this->endpoint}/{$id}/unfollow";
 
-        return new \Fundevogel\Mastodon\Entities\Relationship($this->api->post($endpoint));
+        return new \MrWilsonsWorkshop\Mastodon\Entities\Relationship($this->api->post($endpoint));
     }
 
 
@@ -356,13 +356,13 @@ class Accounts extends Method
      *
      * @param string $id The ID of the account in the database
      *
-     * @return \Fundevogel\Mastodon\Entities\Relationship Relationship
+     * @return \MrWilsonsWorkshop\Mastodon\Entities\Relationship Relationship
      */
-    public function block(string $id): \Fundevogel\Mastodon\Entities\Relationship
+    public function block(string $id): \MrWilsonsWorkshop\Mastodon\Entities\Relationship
     {
         $endpoint = "{$this->endpoint}/{$id}/block";
 
-        return new \Fundevogel\Mastodon\Entities\Relationship($this->api->post($endpoint));
+        return new \MrWilsonsWorkshop\Mastodon\Entities\Relationship($this->api->post($endpoint));
     }
 
 
@@ -373,13 +373,13 @@ class Accounts extends Method
      *
      * @param string $id The ID of the account in the database
      *
-     * @return \Fundevogel\Mastodon\Entities\Relationship Relationship
+     * @return \MrWilsonsWorkshop\Mastodon\Entities\Relationship Relationship
      */
-    public function unblock(string $id): \Fundevogel\Mastodon\Entities\Relationship
+    public function unblock(string $id): \MrWilsonsWorkshop\Mastodon\Entities\Relationship
     {
         $endpoint = "{$this->endpoint}/{$id}/unblock";
 
-        return new \Fundevogel\Mastodon\Entities\Relationship($this->api->post($endpoint));
+        return new \MrWilsonsWorkshop\Mastodon\Entities\Relationship($this->api->post($endpoint));
     }
 
 
@@ -393,13 +393,13 @@ class Accounts extends Method
      *
      * @param string $id The ID of the account in the database
      *
-     * @return \Fundevogel\Mastodon\Entities\Relationship Relationship
+     * @return \MrWilsonsWorkshop\Mastodon\Entities\Relationship Relationship
      */
-    public function mute(string $id): \Fundevogel\Mastodon\Entities\Relationship
+    public function mute(string $id): \MrWilsonsWorkshop\Mastodon\Entities\Relationship
     {
         $endpoint = "{$this->endpoint}/{$id}/mute";
 
-        return new \Fundevogel\Mastodon\Entities\Relationship($this->api->post($endpoint));
+        return new \MrWilsonsWorkshop\Mastodon\Entities\Relationship($this->api->post($endpoint));
     }
 
 
@@ -410,13 +410,13 @@ class Accounts extends Method
      *
      * @param string $id The ID of the account in the database
      *
-     * @return \Fundevogel\Mastodon\Entities\Relationship Relationship
+     * @return \MrWilsonsWorkshop\Mastodon\Entities\Relationship Relationship
      */
-    public function unmute(string $id): \Fundevogel\Mastodon\Entities\Relationship
+    public function unmute(string $id): \MrWilsonsWorkshop\Mastodon\Entities\Relationship
     {
         $endpoint = "{$this->endpoint}/{$id}/unmute";
 
-        return new \Fundevogel\Mastodon\Entities\Relationship($this->api->post($endpoint));
+        return new \MrWilsonsWorkshop\Mastodon\Entities\Relationship($this->api->post($endpoint));
     }
 
 
@@ -429,13 +429,13 @@ class Accounts extends Method
      *
      * @param string $id The ID of the account in the database
      *
-     * @return \Fundevogel\Mastodon\Entities\Relationship Relationship
+     * @return \MrWilsonsWorkshop\Mastodon\Entities\Relationship Relationship
      */
-    public function pin(string $id): \Fundevogel\Mastodon\Entities\Relationship
+    public function pin(string $id): \MrWilsonsWorkshop\Mastodon\Entities\Relationship
     {
         $endpoint = "{$this->endpoint}/{$id}/pin";
 
-        return new \Fundevogel\Mastodon\Entities\Relationship($this->api->post($endpoint));
+        return new \MrWilsonsWorkshop\Mastodon\Entities\Relationship($this->api->post($endpoint));
     }
 
 
@@ -446,13 +446,13 @@ class Accounts extends Method
      *
      * @param string $id The ID of the account in the database
      *
-     * @return \Fundevogel\Mastodon\Entities\Relationship Relationship
+     * @return \MrWilsonsWorkshop\Mastodon\Entities\Relationship Relationship
      */
-    public function unpin(string $id): \Fundevogel\Mastodon\Entities\Relationship
+    public function unpin(string $id): \MrWilsonsWorkshop\Mastodon\Entities\Relationship
     {
         $endpoint = "{$this->endpoint}/{$id}/unpin";
 
-        return new \Fundevogel\Mastodon\Entities\Relationship($this->api->post($endpoint));
+        return new \MrWilsonsWorkshop\Mastodon\Entities\Relationship($this->api->post($endpoint));
     }
 
 
@@ -464,13 +464,13 @@ class Accounts extends Method
      * @param string $id The ID of the account in the database
      * @param string $comment The comment to be set on that user. Provide an empty string or leave out this parameter to clear the currently set note
      *
-     * @return \Fundevogel\Mastodon\Entities\Relationship Relationship
+     * @return \MrWilsonsWorkshop\Mastodon\Entities\Relationship Relationship
      */
-    public function note(string $id, string $comment = ''): \Fundevogel\Mastodon\Entities\Relationship
+    public function note(string $id, string $comment = ''): \MrWilsonsWorkshop\Mastodon\Entities\Relationship
     {
         $endpoint = "{$this->endpoint}/{$id}/note";
 
-        return new \Fundevogel\Mastodon\Entities\Relationship($this->api->post($endpoint, [
+        return new \MrWilsonsWorkshop\Mastodon\Entities\Relationship($this->api->post($endpoint, [
             'comment' => $comment,
         ]));
     }
@@ -494,7 +494,7 @@ class Accounts extends Method
         $endpoint = "{$this->endpoint}/relationships";
 
         return array_map(function ($data) {
-            return new \Fundevogel\Mastodon\Entities\Relationship($data);
+            return new \MrWilsonsWorkshop\Mastodon\Entities\Relationship($data);
         }, $this->api->get($endpoint, [
             'id' => $id,
         ]));
@@ -518,7 +518,7 @@ class Accounts extends Method
         $endpoint = "{$this->endpoint}/search";
 
         return array_map(function($data) {
-            return new \Fundevogel\Mastodon\Entities\Account($data);
+            return new \MrWilsonsWorkshop\Mastodon\Entities\Account($data);
         }, $this->api->get($endpoint, [
             'q'         => $q,
             'limit'     => $limit,

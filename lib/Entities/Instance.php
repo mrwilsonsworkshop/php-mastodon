@@ -1,8 +1,8 @@
 <?php
 
-namespace Fundevogel\Mastodon\Entities;
+namespace MrWilsonsWorkshop\Mastodon\Entities;
 
-use Fundevogel\Mastodon\Entities\Entity;
+use MrWilsonsWorkshop\Mastodon\Entities\Entity;
 
 
 /**
@@ -173,7 +173,7 @@ class Instance extends Entity {
     /**
      * A user that can be contacted, as an alternative to `email`
      *
-     * @return null|\Fundevogel\Mastodon\Entities\Account Account
+     * @return null|\MrWilsonsWorkshop\Mastodon\Entities\Account Account
      */
     public function contactAccount()
     {
@@ -183,6 +183,6 @@ class Instance extends Entity {
             return null;
         }
 
-        return new \Fundevogel\Mastodon\Entities\Account($this->data['contact_account']);
+        return new \MrWilsonsWorkshop\Mastodon\Entities\Account($this->data['contact_account']);
     }
 }

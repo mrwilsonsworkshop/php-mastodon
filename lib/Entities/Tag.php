@@ -1,8 +1,8 @@
 <?php
 
-namespace Fundevogel\Mastodon\Entities;
+namespace MrWilsonsWorkshop\Mastodon\Entities;
 
-use Fundevogel\Mastodon\Entities\Entity;
+use MrWilsonsWorkshop\Mastodon\Entities\Entity;
 
 
 /**
@@ -55,7 +55,7 @@ class Tag extends Entity {
         }
 
         return array_map(function ($data) {
-            return new \Fundevogel\Mastodon\Entities\History($data);
+            return new \MrWilsonsWorkshop\Mastodon\Entities\History($data);
         }, $this->data['history']);
     }
 }

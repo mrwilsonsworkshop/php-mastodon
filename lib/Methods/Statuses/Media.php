@@ -1,8 +1,8 @@
 <?php
 
-namespace Fundevogel\Mastodon\Methods\Statuses;
+namespace MrWilsonsWorkshop\Mastodon\Methods\Statuses;
 
-use Fundevogel\Mastodon\Methods\Method;
+use MrWilsonsWorkshop\Mastodon\Methods\Method;
 
 
 /**
@@ -32,13 +32,13 @@ class Media extends Method
      * @param string $description A plain-text description of the media, for accessibility purposes
      * @param string $focus Two floating points (x,y), comma-delimited, ranging from -1.0 to 1.0
      *
-     * @return \Fundevogel\Mastodon\Entities\Attachment Attachment
+     * @return \MrWilsonsWorkshop\Mastodon\Entities\Attachment Attachment
      */
-    public function upload(object $file, object $thumbnail, string $description = '', string $focus = ''): \Fundevogel\Mastodon\Entities\Attachment
+    public function upload(object $file, object $thumbnail, string $description = '', string $focus = ''): \MrWilsonsWorkshop\Mastodon\Entities\Attachment
     {
         $endpoint = "{$this->endpoint}";
 
-        return new \Fundevogel\Mastodon\Entities\Attachment($this->api->post($endpoint, [
+        return new \MrWilsonsWorkshop\Mastodon\Entities\Attachment($this->api->post($endpoint, [
             'file'        => $file,
             'thumbnail'   => $thumbnail,
             'description' => $description,
@@ -54,13 +54,13 @@ class Media extends Method
      *
      * @param string $id The ID of the Attachment entity
      *
-     * @return \Fundevogel\Mastodon\Entities\Attachment Attachment
+     * @return \MrWilsonsWorkshop\Mastodon\Entities\Attachment Attachment
      */
-    public function get(string $id): \Fundevogel\Mastodon\Entities\Attachment
+    public function get(string $id): \MrWilsonsWorkshop\Mastodon\Entities\Attachment
     {
         $endpoint = "{$this->endpoint}/{$id}";
 
-        return new \Fundevogel\Mastodon\Entities\Attachment($this->api->get($endpoint));
+        return new \MrWilsonsWorkshop\Mastodon\Entities\Attachment($this->api->get($endpoint));
     }
 
 
@@ -75,13 +75,13 @@ class Media extends Method
      * @param string $description A plain-text description of the media, for accessibility purposes
      * @param string $focus Two floating points (x,y), comma-delimited, ranging from -1.0 to 1.0
      *
-     * @return \Fundevogel\Mastodon\Entities\Attachment Attachment
+     * @return \MrWilsonsWorkshop\Mastodon\Entities\Attachment Attachment
      */
-    public function update(string $id, string $file = '', string $thumbnail = '', string $description = '', string $focus = ''): \Fundevogel\Mastodon\Entities\Attachment
+    public function update(string $id, string $file = '', string $thumbnail = '', string $description = '', string $focus = ''): \MrWilsonsWorkshop\Mastodon\Entities\Attachment
     {
         $endpoint = "{$this->endpoint}";
 
-        return new \Fundevogel\Mastodon\Entities\Attachment($this->api->put($endpoint, [
+        return new \MrWilsonsWorkshop\Mastodon\Entities\Attachment($this->api->put($endpoint, [
             'file'        => $file,
             'thumbnail'   => $thumbnail,
             'description' => $description,

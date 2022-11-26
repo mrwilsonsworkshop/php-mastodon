@@ -1,8 +1,8 @@
 <?php
 
-namespace Fundevogel\Mastodon\Entities;
+namespace MrWilsonsWorkshop\Mastodon\Entities;
 
-use Fundevogel\Mastodon\Entities\Entity;
+use MrWilsonsWorkshop\Mastodon\Entities\Entity;
 
 
 /**
@@ -36,7 +36,7 @@ class Conversation extends Entity {
     public function accounts(): array
     {
         return array_map(function () {
-            return new \Fundevogel\Mastodon\Entities\Account($data);
+            return new \MrWilsonsWorkshop\Mastodon\Entities\Account($data);
         }, $this->data['accounts']);
     }
 
@@ -59,7 +59,7 @@ class Conversation extends Entity {
     /**
      * Is the conversation currently marked as unread?
      *
-     * @return null|\Fundevogel\Mastodon\Entities\Status
+     * @return null|\MrWilsonsWorkshop\Mastodon\Entities\Status
      */
     public function lastStatus()
     {
@@ -69,6 +69,6 @@ class Conversation extends Entity {
             return null;
         }
 
-        return new \Fundevogel\Mastodon\Entities\Status($this->data['last_status']);
+        return new \MrWilsonsWorkshop\Mastodon\Entities\Status($this->data['last_status']);
     }
 }

@@ -1,8 +1,8 @@
 <?php
 
-namespace Fundevogel\Mastodon\Methods\Apps;
+namespace MrWilsonsWorkshop\Mastodon\Methods\Apps;
 
-use Fundevogel\Mastodon\Methods\Method;
+use MrWilsonsWorkshop\Mastodon\Methods\Method;
 
 
 /**
@@ -32,13 +32,13 @@ class Apps extends Method
      * @param string $scopes Space separated list of scopes
      * @param string $website A URL to the homepage of your app
      *
-     * @return \Fundevogel\Mastodon\Entities\Application Application, with `client_id` and `client_secret`
+     * @return \MrWilsonsWorkshop\Mastodon\Entities\Application Application, with `client_id` and `client_secret`
      */
-    public function create(string $clientName, string $redirectURIs, string $scopes = 'read', string $website = ''): \Fundevogel\Mastodon\Entities\Application
+    public function create(string $clientName, string $redirectURIs, string $scopes = 'read', string $website = ''): \MrWilsonsWorkshop\Mastodon\Entities\Application
     {
         $endpoint = "{$this->endpoint}";
 
-        return new \Fundevogel\Mastodon\Entities\Application($this->api->post($endpoint, [
+        return new \MrWilsonsWorkshop\Mastodon\Entities\Application($this->api->post($endpoint, [
             'client_name'   => $clientName,
             'redirect_uris' => $redirectURIs,
             'scopes'        => $scopes,
@@ -57,12 +57,12 @@ class Apps extends Method
      * @param string $scopes
      * @param string $website
      *
-     * @return \Fundevogel\Mastodon\Entities\Application Application
+     * @return \MrWilsonsWorkshop\Mastodon\Entities\Application Application
      */
-    public function verifyCredentials(): \Fundevogel\Mastodon\Entities\Application
+    public function verifyCredentials(): \MrWilsonsWorkshop\Mastodon\Entities\Application
     {
         $endpoint = "{$this->endpoint}/verify_credentials";
 
-        return new \Fundevogel\Mastodon\Entities\Application($this->api->post($endpoint));
+        return new \MrWilsonsWorkshop\Mastodon\Entities\Application($this->api->post($endpoint));
     }
 }

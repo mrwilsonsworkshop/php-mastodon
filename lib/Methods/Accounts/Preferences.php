@@ -1,8 +1,8 @@
 <?php
 
-namespace Fundevogel\Mastodon\Methods\Accounts;
+namespace MrWilsonsWorkshop\Mastodon\Methods\Accounts;
 
-use Fundevogel\Mastodon\Methods\Method;
+use MrWilsonsWorkshop\Mastodon\Methods\Method;
 
 
 /**
@@ -27,12 +27,12 @@ class Preferences extends Method
      *
      * Preferences defined by the user in their account settings
      *
-     * @return \Fundevogel\Mastodon\Entities\Preferences Preferences by key and value
+     * @return \MrWilsonsWorkshop\Mastodon\Entities\Preferences Preferences by key and value
      */
-    public function get(): \Fundevogel\Mastodon\Entities\Preferences
+    public function get(): \MrWilsonsWorkshop\Mastodon\Entities\Preferences
     {
         $endpoint = "{$this->endpoint}";
 
-        return new \Fundevogel\Mastodon\Entities\Preferences($this->api->get($endpoint));
+        return new \MrWilsonsWorkshop\Mastodon\Entities\Preferences($this->api->get($endpoint));
     }
 }

@@ -1,8 +1,8 @@
 <?php
 
-namespace Fundevogel\Mastodon\Methods\Statuses;
+namespace MrWilsonsWorkshop\Mastodon\Methods\Statuses;
 
-use Fundevogel\Mastodon\Methods\Method;
+use MrWilsonsWorkshop\Mastodon\Methods\Method;
 
 
 /**
@@ -44,13 +44,13 @@ class Statuses extends Method
      *
      * @param string $id Local ID of a status in the database
      *
-     * @return \Fundevogel\Mastodon\Entities\Status Status
+     * @return \MrWilsonsWorkshop\Mastodon\Entities\Status Status
      */
-    public function get(string $id): \Fundevogel\Mastodon\Entities\Status
+    public function get(string $id): \MrWilsonsWorkshop\Mastodon\Entities\Status
     {
         $endpoint = "{$this->endpoint}/{$id}";
 
-        return new \Fundevogel\Mastodon\Entities\Status($this->api->get($endpoint));
+        return new \MrWilsonsWorkshop\Mastodon\Entities\Status($this->api->get($endpoint));
     }
 
 
@@ -61,13 +61,13 @@ class Statuses extends Method
      *
      * @param string $id Local ID of a status in the database. Must be owned by authenticated account
      *
-     * @return \Fundevogel\Mastodon\Entities\Status Status with source `text` and `media_attachments` or `poll`
+     * @return \MrWilsonsWorkshop\Mastodon\Entities\Status Status with source `text` and `media_attachments` or `poll`
      */
-    public function delete(string $id): \Fundevogel\Mastodon\Entities\Status
+    public function delete(string $id): \MrWilsonsWorkshop\Mastodon\Entities\Status
     {
         $endpoint = "{$this->endpoint}/{$id}";
 
-        return new \Fundevogel\Mastodon\Entities\Status($this->api->delete($endpoint));
+        return new \MrWilsonsWorkshop\Mastodon\Entities\Status($this->api->delete($endpoint));
     }
 
 
@@ -78,13 +78,13 @@ class Statuses extends Method
      *
      * @param string $id Local ID of a status in the database
      *
-     * @return \Fundevogel\Mastodon\Entities\Context Context
+     * @return \MrWilsonsWorkshop\Mastodon\Entities\Context Context
      */
-    public function context(string $id): \Fundevogel\Mastodon\Entities\Context
+    public function context(string $id): \MrWilsonsWorkshop\Mastodon\Entities\Context
     {
         $endpoint = "{$this->endpoint}/{$id}/context";
 
-        return new \Fundevogel\Mastodon\Entities\Context($this->api->get($endpoint));
+        return new \MrWilsonsWorkshop\Mastodon\Entities\Context($this->api->get($endpoint));
     }
 
 
@@ -102,7 +102,7 @@ class Statuses extends Method
         $endpoint = "{$this->endpoint}/{$id}/reblogged_by";
 
         return array_map(function ($data) {
-            return new \Fundevogel\Mastodon\Entities\Account($data);
+            return new \MrWilsonsWorkshop\Mastodon\Entities\Account($data);
         }, $this->api->get($endpoint));
     }
 
@@ -121,7 +121,7 @@ class Statuses extends Method
         $endpoint = "{$this->endpoint}/{$id}/favourited_by";
 
         return array_map(function ($data) {
-            return new \Fundevogel\Mastodon\Entities\Account($data);
+            return new \MrWilsonsWorkshop\Mastodon\Entities\Account($data);
         }, $this->api->get($endpoint));
     }
 
@@ -133,13 +133,13 @@ class Statuses extends Method
      *
      * @param string $id Local ID of a status in the database
      *
-     * @return \Fundevogel\Mastodon\Entities\Status Status
+     * @return \MrWilsonsWorkshop\Mastodon\Entities\Status Status
      */
-    public function favourite(string $id): \Fundevogel\Mastodon\Entities\Status
+    public function favourite(string $id): \MrWilsonsWorkshop\Mastodon\Entities\Status
     {
         $endpoint = "{$this->endpoint}/{$id}/favourite";
 
-        return new \Fundevogel\Mastodon\Entities\Status($this->api->post($endpoint));
+        return new \MrWilsonsWorkshop\Mastodon\Entities\Status($this->api->post($endpoint));
     }
 
 
@@ -150,13 +150,13 @@ class Statuses extends Method
      *
      * @param string $id Local ID of a status in the database
      *
-     * @return \Fundevogel\Mastodon\Entities\Status Status
+     * @return \MrWilsonsWorkshop\Mastodon\Entities\Status Status
      */
-    public function unfavourite(string $id): \Fundevogel\Mastodon\Entities\Status
+    public function unfavourite(string $id): \MrWilsonsWorkshop\Mastodon\Entities\Status
     {
         $endpoint = "{$this->endpoint}/{$id}/unfavourite";
 
-        return new \Fundevogel\Mastodon\Entities\Status($this->api->post($endpoint));
+        return new \MrWilsonsWorkshop\Mastodon\Entities\Status($this->api->post($endpoint));
     }
 
 
@@ -168,13 +168,13 @@ class Statuses extends Method
      * @param string $id Local ID of a status in the database
      * @param string $visibility any visibility except limited or direct (i.e. `public`, `unlisted`, `private`)
      *
-     * @return \Fundevogel\Mastodon\Entities\Status Status
+     * @return \MrWilsonsWorkshop\Mastodon\Entities\Status Status
      */
-    public function reblog(string $id, string $visibility = 'public'): \Fundevogel\Mastodon\Entities\Status
+    public function reblog(string $id, string $visibility = 'public'): \MrWilsonsWorkshop\Mastodon\Entities\Status
     {
         $endpoint = "{$this->endpoint}/{$id}/reblog";
 
-        return new \Fundevogel\Mastodon\Entities\Status($this->api->post($endpoint, [
+        return new \MrWilsonsWorkshop\Mastodon\Entities\Status($this->api->post($endpoint, [
             'visibility' => $visibility,
         ]));
     }
@@ -187,13 +187,13 @@ class Statuses extends Method
      *
      * @param string $id Local ID of a status in the database
      *
-     * @return \Fundevogel\Mastodon\Entities\Status Status
+     * @return \MrWilsonsWorkshop\Mastodon\Entities\Status Status
      */
-    public function unreblog(string $id): \Fundevogel\Mastodon\Entities\Status
+    public function unreblog(string $id): \MrWilsonsWorkshop\Mastodon\Entities\Status
     {
         $endpoint = "{$this->endpoint}/{$id}/unreblog";
 
-        return new \Fundevogel\Mastodon\Entities\Status($this->api->post($endpoint));
+        return new \MrWilsonsWorkshop\Mastodon\Entities\Status($this->api->post($endpoint));
     }
 
 
@@ -204,13 +204,13 @@ class Statuses extends Method
      *
      * @param string $id ID of the status in the database
      *
-     * @return \Fundevogel\Mastodon\Entities\Status Status
+     * @return \MrWilsonsWorkshop\Mastodon\Entities\Status Status
      */
-    public function bookmark(string $id): \Fundevogel\Mastodon\Entities\Status
+    public function bookmark(string $id): \MrWilsonsWorkshop\Mastodon\Entities\Status
     {
         $endpoint = "{$this->endpoint}/{$id}/bookmark";
 
-        return new \Fundevogel\Mastodon\Entities\Status($this->api->post($endpoint));
+        return new \MrWilsonsWorkshop\Mastodon\Entities\Status($this->api->post($endpoint));
     }
 
 
@@ -221,13 +221,13 @@ class Statuses extends Method
      *
      * @param string $id ID of the status in the database
      *
-     * @return \Fundevogel\Mastodon\Entities\Status Status
+     * @return \MrWilsonsWorkshop\Mastodon\Entities\Status Status
      */
-    public function unbookmark(string $id): \Fundevogel\Mastodon\Entities\Status
+    public function unbookmark(string $id): \MrWilsonsWorkshop\Mastodon\Entities\Status
     {
         $endpoint = "{$this->endpoint}/{$id}/unbookmark";
 
-        return new \Fundevogel\Mastodon\Entities\Status($this->api->post($endpoint));
+        return new \MrWilsonsWorkshop\Mastodon\Entities\Status($this->api->post($endpoint));
     }
 
 
@@ -238,13 +238,13 @@ class Statuses extends Method
      *
      * @param string $id Local ID of a status in the database
      *
-     * @return \Fundevogel\Mastodon\Entities\Status Status
+     * @return \MrWilsonsWorkshop\Mastodon\Entities\Status Status
      */
-    public function mute(string $id): \Fundevogel\Mastodon\Entities\Status
+    public function mute(string $id): \MrWilsonsWorkshop\Mastodon\Entities\Status
     {
         $endpoint = "{$this->endpoint}/{$id}/mute";
 
-        return new \Fundevogel\Mastodon\Entities\Status($this->api->post($endpoint));
+        return new \MrWilsonsWorkshop\Mastodon\Entities\Status($this->api->post($endpoint));
     }
 
 
@@ -255,13 +255,13 @@ class Statuses extends Method
      *
      * @param string $id Local ID of a status in the database
      *
-     * @return \Fundevogel\Mastodon\Entities\Status Status
+     * @return \MrWilsonsWorkshop\Mastodon\Entities\Status Status
      */
-    public function unmute(string $id): \Fundevogel\Mastodon\Entities\Status
+    public function unmute(string $id): \MrWilsonsWorkshop\Mastodon\Entities\Status
     {
         $endpoint = "{$this->endpoint}/{$id}/unmute";
 
-        return new \Fundevogel\Mastodon\Entities\Status($this->api->post($endpoint));
+        return new \MrWilsonsWorkshop\Mastodon\Entities\Status($this->api->post($endpoint));
     }
 
 
@@ -272,13 +272,13 @@ class Statuses extends Method
      *
      * @param string $id Local ID of a status in the database. The status should be public and authored by the authorized account
      *
-     * @return \Fundevogel\Mastodon\Entities\Status Status
+     * @return \MrWilsonsWorkshop\Mastodon\Entities\Status Status
      */
-    public function pin(string $id): \Fundevogel\Mastodon\Entities\Status
+    public function pin(string $id): \MrWilsonsWorkshop\Mastodon\Entities\Status
     {
         $endpoint = "{$this->endpoint}/{$id}/pin";
 
-        return new \Fundevogel\Mastodon\Entities\Status($this->api->post($endpoint));
+        return new \MrWilsonsWorkshop\Mastodon\Entities\Status($this->api->post($endpoint));
     }
 
 
@@ -289,12 +289,12 @@ class Statuses extends Method
      *
      * @param string $id Local ID of a status in the database
      *
-     * @return \Fundevogel\Mastodon\Entities\Status Status
+     * @return \MrWilsonsWorkshop\Mastodon\Entities\Status Status
      */
-    public function unpin(string $id): \Fundevogel\Mastodon\Entities\Status
+    public function unpin(string $id): \MrWilsonsWorkshop\Mastodon\Entities\Status
     {
         $endpoint = "{$this->endpoint}/{$id}/unpin";
 
-        return new \Fundevogel\Mastodon\Entities\Status($this->api->post($endpoint));
+        return new \MrWilsonsWorkshop\Mastodon\Entities\Status($this->api->post($endpoint));
     }
 }

@@ -1,8 +1,8 @@
 <?php
 
-namespace Fundevogel\Mastodon\Methods\Accounts;
+namespace MrWilsonsWorkshop\Mastodon\Methods\Accounts;
 
-use Fundevogel\Mastodon\Methods\Method;
+use MrWilsonsWorkshop\Mastodon\Methods\Method;
 
 
 /**
@@ -34,7 +34,7 @@ class FollowRequests extends Method
         $endpoint = "{$this->endpoint}";
 
         return array_map(function ($data) {
-            return new \Fundevogel\Mastodon\Entities\Account($data);
+            return new \MrWilsonsWorkshop\Mastodon\Entities\Account($data);
         }, $this->api->get($endpoint, [
             'limit' => $limit,
         ]));
@@ -46,13 +46,13 @@ class FollowRequests extends Method
      *
      * @param string $id ID of the account in the database
      *
-     * @return \Fundevogel\Mastodon\Entities\Relationship Relationship
+     * @return \MrWilsonsWorkshop\Mastodon\Entities\Relationship Relationship
      */
-    public function authorize(string $id): \Fundevogel\Mastodon\Entities\Relationship
+    public function authorize(string $id): \MrWilsonsWorkshop\Mastodon\Entities\Relationship
     {
         $endpoint = "{$this->endpoint}/{$id}/authorize";
 
-        return new \Fundevogel\Mastodon\Entities\Relationship($this->api->post($endpoint));
+        return new \MrWilsonsWorkshop\Mastodon\Entities\Relationship($this->api->post($endpoint));
     }
 
 
@@ -61,12 +61,12 @@ class FollowRequests extends Method
      *
      * @param string $id ID of the account in the database
      *
-     * @return \Fundevogel\Mastodon\Entities\Relationship Relationship
+     * @return \MrWilsonsWorkshop\Mastodon\Entities\Relationship Relationship
      */
-    public function reject(string $id): \Fundevogel\Mastodon\Entities\Relationship
+    public function reject(string $id): \MrWilsonsWorkshop\Mastodon\Entities\Relationship
     {
         $endpoint = "{$this->endpoint}/{$id}/reject";
 
-        return new \Fundevogel\Mastodon\Entities\Relationship($this->api->post($endpoint));
+        return new \MrWilsonsWorkshop\Mastodon\Entities\Relationship($this->api->post($endpoint));
     }
 }

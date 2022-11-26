@@ -1,8 +1,8 @@
 <?php
 
-namespace Fundevogel\Mastodon\Methods\Announcements;
+namespace MrWilsonsWorkshop\Mastodon\Methods\Announcements;
 
-use Fundevogel\Mastodon\Methods\Method;
+use MrWilsonsWorkshop\Mastodon\Methods\Method;
 
 
 /**
@@ -36,7 +36,7 @@ class Announcements extends Method
         $endpoint = "{$this->endpoint}";
 
         return array_map(function ($data) {
-            return new \Fundevogel\Mastodon\Entities\Announcement($data);
+            return new \MrWilsonsWorkshop\Mastodon\Entities\Announcement($data);
         }, $this->api->get($endpoint, [
             'with_dismissed' => $withDismissed,
         ]));

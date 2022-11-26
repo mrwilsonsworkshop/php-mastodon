@@ -1,8 +1,8 @@
 <?php
 
-namespace Fundevogel\Mastodon\Methods\Statuses;
+namespace MrWilsonsWorkshop\Mastodon\Methods\Statuses;
 
-use Fundevogel\Mastodon\Methods\Method;
+use MrWilsonsWorkshop\Mastodon\Methods\Method;
 
 
 /**
@@ -37,7 +37,7 @@ class ScheduledStatuses extends Method
         $endpoint = "{$this->endpoint}";
 
         return array_map(function ($data) {
-            return new \Fundevogel\Mastodon\Entities\ScheduledStatus($data);
+            return new \MrWilsonsWorkshop\Mastodon\Entities\ScheduledStatus($data);
         }, $this->api->get($endpoint, [
             'limit'    => $limit,
             'max_id'   => $maxID,
@@ -52,13 +52,13 @@ class ScheduledStatuses extends Method
      *
      * @param string $id ID of the scheduled status in the database
      *
-     * @return \Fundevogel\Mastodon\Entities\ScheduledStatus ScheduledStatus
+     * @return \MrWilsonsWorkshop\Mastodon\Entities\ScheduledStatus ScheduledStatus
      */
-    public function get(string $id): \Fundevogel\Mastodon\Entities\ScheduledStatus
+    public function get(string $id): \MrWilsonsWorkshop\Mastodon\Entities\ScheduledStatus
     {
         $endpoint = "{$this->endpoint}/{$id}";
 
-        return new \Fundevogel\Mastodon\Entities\ScheduledStatus($this->api->get($endpoint));
+        return new \MrWilsonsWorkshop\Mastodon\Entities\ScheduledStatus($this->api->get($endpoint));
     }
 
 
@@ -68,13 +68,13 @@ class ScheduledStatuses extends Method
      * @param string $id ID of the Status to be scheduled
      * @param string $scheduledAt ISO 8601 Datetime at which the status will be published. Must be at least 5 minutes into the future
      *
-     * @return \Fundevogel\Mastodon\Entities\ScheduledStatus ScheduledStatus
+     * @return \MrWilsonsWorkshop\Mastodon\Entities\ScheduledStatus ScheduledStatus
      */
-    public function schedule(string $id, string $scheduledAt = ''): \Fundevogel\Mastodon\Entities\ScheduledStatus
+    public function schedule(string $id, string $scheduledAt = ''): \MrWilsonsWorkshop\Mastodon\Entities\ScheduledStatus
     {
         $endpoint = "{$this->endpoint}/{$id}";
 
-        return new \Fundevogel\Mastodon\Entities\ScheduledStatus($this->api->put($endpoint, [
+        return new \MrWilsonsWorkshop\Mastodon\Entities\ScheduledStatus($this->api->put($endpoint, [
             'scheduled_at' => $scheduledAt,
         ]));
     }

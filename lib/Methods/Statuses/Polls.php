@@ -1,8 +1,8 @@
 <?php
 
-namespace Fundevogel\Mastodon\Methods\Statuses;
+namespace MrWilsonsWorkshop\Mastodon\Methods\Statuses;
 
-use Fundevogel\Mastodon\Methods\Method;
+use MrWilsonsWorkshop\Mastodon\Methods\Method;
 
 
 /**
@@ -29,13 +29,13 @@ class Polls extends Method
      *
      * @param string $id ID of the poll in the database
      *
-     * @return \Fundevogel\Mastodon\Entities\Poll Poll
+     * @return \MrWilsonsWorkshop\Mastodon\Entities\Poll Poll
      */
-    public function get(string $id): \Fundevogel\Mastodon\Entities\Poll
+    public function get(string $id): \MrWilsonsWorkshop\Mastodon\Entities\Poll
     {
         $endpoint = "{$this->endpoint}/{$id}";
 
-        return new \Fundevogel\Mastodon\Entities\Poll($this->api->get($endpoint));
+        return new \MrWilsonsWorkshop\Mastodon\Entities\Poll($this->api->get($endpoint));
     }
 
 
@@ -45,12 +45,12 @@ class Polls extends Method
      * @param string $id ID of the poll in the database
      * @param array $choices Array of own votes containing index for each option (starting from 0)
      *
-     * @return \Fundevogel\Mastodon\Entities\Poll Poll
+     * @return \MrWilsonsWorkshop\Mastodon\Entities\Poll Poll
      */
-    public function vote(string $id, array $choices): \Fundevogel\Mastodon\Entities\Poll
+    public function vote(string $id, array $choices): \MrWilsonsWorkshop\Mastodon\Entities\Poll
     {
         $endpoint = "{$this->endpoint}/{$id}/votes";
 
-        return new \Fundevogel\Mastodon\Entities\Poll($this->api->post($endpoint));
+        return new \MrWilsonsWorkshop\Mastodon\Entities\Poll($this->api->post($endpoint));
     }
 }

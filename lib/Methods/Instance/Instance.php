@@ -1,8 +1,8 @@
 <?php
 
-namespace Fundevogel\Mastodon\Methods\Instance;
+namespace MrWilsonsWorkshop\Mastodon\Methods\Instance;
 
-use Fundevogel\Mastodon\Methods\Method;
+use MrWilsonsWorkshop\Mastodon\Methods\Method;
 
 
 /**
@@ -27,13 +27,13 @@ class Instance extends Method
      *
      * Information about the server
      *
-     * @return \Fundevogel\Mastodon\Entities\Instance Instance
+     * @return \MrWilsonsWorkshop\Mastodon\Entities\Instance Instance
      */
-    public function get(): \Fundevogel\Mastodon\Entities\Instance
+    public function get(): \MrWilsonsWorkshop\Mastodon\Entities\Instance
     {
         $endpoint = "{$this->endpoint}";
 
-        return new \Fundevogel\Mastodon\Entities\Instance($this->api->get($endpoint));
+        return new \MrWilsonsWorkshop\Mastodon\Entities\Instance($this->api->get($endpoint));
     }
 
 
@@ -64,7 +64,7 @@ class Instance extends Method
         $endpoint = "{$this->endpoint}/activity";
 
         return array_map(function ($data) {
-            return new \Fundevogel\Mastodon\Entities\Activity($data);
+            return new \MrWilsonsWorkshop\Mastodon\Entities\Activity($data);
         }, $this->api->post($endpoint));
     }
 }

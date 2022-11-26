@@ -1,8 +1,8 @@
 <?php
 
-namespace Fundevogel\Mastodon\Methods\Instance;
+namespace MrWilsonsWorkshop\Mastodon\Methods\Instance;
 
-use Fundevogel\Mastodon\Methods\Method;
+use MrWilsonsWorkshop\Mastodon\Methods\Method;
 
 
 /**
@@ -34,7 +34,7 @@ class CustomEmojis extends Method
         $endpoint = "{$this->endpoint}";
 
         return array_map(function ($data) {
-            return new \Fundevogel\Mastodon\Entities\Emoji($data);
+            return new \MrWilsonsWorkshop\Mastodon\Entities\Emoji($data);
         }, $this->api->get($endpoint));
     }
 }

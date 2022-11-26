@@ -1,24 +1,24 @@
 <?php
 
-namespace Fundevogel\Mastodon\Traits\Methods;
+namespace MrWilsonsWorkshop\Mastodon\Traits\Methods;
 
 
 trait Apps
 {
     /**
-     * @return \Fundevogel\Mastodon\Methods\Apps\Apps;
+     * @return \MrWilsonsWorkshop\Mastodon\Methods\Apps\Apps;
      */
-    public function apps(): \Fundevogel\Mastodon\Methods\Apps\Apps
+    public function apps(): \MrWilsonsWorkshop\Mastodon\Methods\Apps\Apps
     {
-        return new \Fundevogel\Mastodon\Methods\Apps\Apps($this);
+        return new \MrWilsonsWorkshop\Mastodon\Methods\Apps\Apps($this);
     }
 
 
     /**
-     * @return \Fundevogel\Mastodon\Methods\Apps\OAuth;
+     * @return \MrWilsonsWorkshop\Mastodon\Methods\Apps\OAuth;
      */
-    public function oauth(): \Fundevogel\Mastodon\Methods\Apps\OAuth
+    public function oauth(): \MrWilsonsWorkshop\Mastodon\Methods\Apps\OAuth
     {
-        return new \Fundevogel\Mastodon\Methods\Apps\OAuth($this);
+        return new \MrWilsonsWorkshop\Mastodon\Methods\Apps\OAuth($this);
     }
 }

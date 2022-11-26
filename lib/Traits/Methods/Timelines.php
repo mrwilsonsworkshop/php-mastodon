@@ -1,42 +1,42 @@
 <?php
 
-namespace Fundevogel\Mastodon\Traits\Methods;
+namespace MrWilsonsWorkshop\Mastodon\Traits\Methods;
 
 
 trait Timelines
 {
     /**
-     * @return \Fundevogel\Mastodon\Methods\Timelines\Timelines;
+     * @return \MrWilsonsWorkshop\Mastodon\Methods\Timelines\Timelines;
      */
-    public function timelines(): \Fundevogel\Mastodon\Methods\Timelines\Timelines
+    public function timelines(): \MrWilsonsWorkshop\Mastodon\Methods\Timelines\Timelines
     {
-        return new \Fundevogel\Mastodon\Methods\Timelines\Timelines($this);
+        return new \MrWilsonsWorkshop\Mastodon\Methods\Timelines\Timelines($this);
     }
 
 
     /**
-     * @return \Fundevogel\Mastodon\Methods\Timelines\Conversations;
+     * @return \MrWilsonsWorkshop\Mastodon\Methods\Timelines\Conversations;
      */
-    public function conversations(): \Fundevogel\Mastodon\Methods\Timelines\Conversations
+    public function conversations(): \MrWilsonsWorkshop\Mastodon\Methods\Timelines\Conversations
     {
-        return new \Fundevogel\Mastodon\Methods\Timelines\Conversations($this);
+        return new \MrWilsonsWorkshop\Mastodon\Methods\Timelines\Conversations($this);
     }
 
 
     /**
-     * @return \Fundevogel\Mastodon\Methods\Timelines\Lists;
+     * @return \MrWilsonsWorkshop\Mastodon\Methods\Timelines\Lists;
      */
-    public function lists(): \Fundevogel\Mastodon\Methods\Timelines\Lists
+    public function lists(): \MrWilsonsWorkshop\Mastodon\Methods\Timelines\Lists
     {
-        return new \Fundevogel\Mastodon\Methods\Timelines\Lists($this);
+        return new \MrWilsonsWorkshop\Mastodon\Methods\Timelines\Lists($this);
     }
 
 
     /**
-     * @return \Fundevogel\Mastodon\Methods\Timelines\Markers;
+     * @return \MrWilsonsWorkshop\Mastodon\Methods\Timelines\Markers;
      */
-    public function markers(): \Fundevogel\Mastodon\Methods\Timelines\Markers
+    public function markers(): \MrWilsonsWorkshop\Mastodon\Methods\Timelines\Markers
     {
-        return new \Fundevogel\Mastodon\Methods\Timelines\Markers($this);
+        return new \MrWilsonsWorkshop\Mastodon\Methods\Timelines\Markers($this);
     }
 }

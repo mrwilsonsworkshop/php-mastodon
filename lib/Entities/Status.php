@@ -1,8 +1,8 @@
 <?php
 
-namespace Fundevogel\Mastodon\Entities;
+namespace MrWilsonsWorkshop\Mastodon\Entities;
 
-use Fundevogel\Mastodon\Entities\Entity;
+use MrWilsonsWorkshop\Mastodon\Entities\Entity;
 
 
 /**
@@ -54,11 +54,11 @@ class Status extends Entity
     /**
      * The account that authored this status
      *
-     * @return \Fundevogel\Mastodon\Entities\Account
+     * @return \MrWilsonsWorkshop\Mastodon\Entities\Account
      */
-    public function account(): \Fundevogel\Mastodon\Entities\Account
+    public function account(): \MrWilsonsWorkshop\Mastodon\Entities\Account
     {
-        return new \Fundevogel\Mastodon\Entities\Account($this->data['account']);
+        return new \MrWilsonsWorkshop\Mastodon\Entities\Account($this->data['account']);
     }
 
 
@@ -120,7 +120,7 @@ class Status extends Entity
     public function mediaAttachments(): string
     {
         return array_map(function ($data) {
-            return new \Fundevogel\Mastodon\Entities\Attachment($data);
+            return new \MrWilsonsWorkshop\Mastodon\Entities\Attachment($data);
         }, $this->data['media_attachments']);
     }
 
@@ -128,9 +128,9 @@ class Status extends Entity
     /**
      * The application used to post this status
      *
-     * @return \Fundevogel\Mastodon\Entities\Application
+     * @return \MrWilsonsWorkshop\Mastodon\Entities\Application
      */
-    public function application(): \Fundevogel\Mastodon\Entities\Application
+    public function application(): \MrWilsonsWorkshop\Mastodon\Entities\Application
     {
         return $this->data['application'];
     }
@@ -148,7 +148,7 @@ class Status extends Entity
     public function mentions(): array
     {
         return array_map(function ($data) {
-            return new \Fundevogel\Mastodon\Entities\Mention($data);
+            return new \MrWilsonsWorkshop\Mastodon\Entities\Mention($data);
         }, $this->data['mentions']);
     }
 
@@ -161,7 +161,7 @@ class Status extends Entity
     public function tags(): array
     {
         return array_map(function ($data) {
-            return new \Fundevogel\Mastodon\Entities\Tag($data);
+            return new \MrWilsonsWorkshop\Mastodon\Entities\Tag($data);
         }, $this->data['tags']);
     }
 
@@ -174,7 +174,7 @@ class Status extends Entity
     public function emojis(): array
     {
         return array_map(function ($data) {
-            return new \Fundevogel\Mastodon\Entities\Tag($data);
+            return new \MrWilsonsWorkshop\Mastodon\Entities\Tag($data);
         }, $this->data['emojis']);
     }
 
@@ -245,12 +245,12 @@ class Status extends Entity
     /**
      * The status being reblogged
      *
-     * @return null|\Fundevogel\Mastodon\Entities\Status Status
+     * @return null|\MrWilsonsWorkshop\Mastodon\Entities\Status Status
      */
     public function reblog()
     {
         return is_array($this->data['reblog'])
-            ? new \Fundevogel\Mastodon\Entities\Status($this->data['reblog'])
+            ? new \MrWilsonsWorkshop\Mastodon\Entities\Status($this->data['reblog'])
             : null
         ;
     }
@@ -259,12 +259,12 @@ class Status extends Entity
     /**
      * The poll attached to the status
      *
-     * @return null|\Fundevogel\Mastodon\Entities\Poll Poll
+     * @return null|\MrWilsonsWorkshop\Mastodon\Entities\Poll Poll
      */
     public function poll()
     {
         return is_array($this->data['poll'])
-            ? new \Fundevogel\Mastodon\Entities\Poll($this->data['poll'])
+            ? new \MrWilsonsWorkshop\Mastodon\Entities\Poll($this->data['poll'])
             : null
         ;
     }
@@ -273,12 +273,12 @@ class Status extends Entity
     /**
      * Preview card for links included within status content
      *
-     * @return null|\Fundevogel\Mastodon\Entities\Card Card
+     * @return null|\MrWilsonsWorkshop\Mastodon\Entities\Card Card
      */
     public function card()
     {
         return is_array($this->data['card'])
-            ? new \Fundevogel\Mastodon\Entities\Card($this->data['card'])
+            ? new \MrWilsonsWorkshop\Mastodon\Entities\Card($this->data['card'])
             : null
         ;
     }
@@ -379,7 +379,7 @@ class Status extends Entity
     /**
      * Enable media downloads
      */
-    use \Fundevogel\Mastodon\Traits\Downloader;
+    use \MrWilsonsWorkshop\Mastodon\Traits\Downloader;
 
 
     /**

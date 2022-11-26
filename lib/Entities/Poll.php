@@ -1,8 +1,8 @@
 <?php
 
-namespace Fundevogel\Mastodon\Entities;
+namespace MrWilsonsWorkshop\Mastodon\Entities;
 
-use Fundevogel\Mastodon\Entities\Entity;
+use MrWilsonsWorkshop\Mastodon\Entities\Entity;
 
 
 /**
@@ -118,7 +118,7 @@ class Poll extends Entity {
     public function emojis()
     {
         return array_map(function ($data) {
-            return new \Fundevogel\Mastodon\Entities\Emoji($data);
+            return new \MrWilsonsWorkshop\Mastodon\Entities\Emoji($data);
         }, $this->data['emojis']);
     }
 }

@@ -1,43 +1,43 @@
 <?php
 
-namespace Fundevogel\Mastodon\Traits\Methods;
+namespace MrWilsonsWorkshop\Mastodon\Traits\Methods;
 
 
 trait Statuses
 {
 
     /**
-     * @return \Fundevogel\Mastodon\Methods\Statuses\Statuses;
+     * @return \MrWilsonsWorkshop\Mastodon\Methods\Statuses\Statuses;
      */
-    public function statuses(): \Fundevogel\Mastodon\Methods\Statuses\Statuses
+    public function statuses(): \MrWilsonsWorkshop\Mastodon\Methods\Statuses\Statuses
     {
-        return new \Fundevogel\Mastodon\Methods\Statuses\Statuses($this);
+        return new \MrWilsonsWorkshop\Mastodon\Methods\Statuses\Statuses($this);
     }
 
 
     /**
-     * @return \Fundevogel\Mastodon\Methods\Statuses\Media;
+     * @return \MrWilsonsWorkshop\Mastodon\Methods\Statuses\Media;
      */
-    public function media(): \Fundevogel\Mastodon\Methods\Statuses\Media
+    public function media(): \MrWilsonsWorkshop\Mastodon\Methods\Statuses\Media
     {
-        return new \Fundevogel\Mastodon\Methods\Statuses\Media($this);
+        return new \MrWilsonsWorkshop\Mastodon\Methods\Statuses\Media($this);
     }
 
 
     /**
-     * @return \Fundevogel\Mastodon\Methods\Statuses\Polls;
+     * @return \MrWilsonsWorkshop\Mastodon\Methods\Statuses\Polls;
      */
-    public function polls(): \Fundevogel\Mastodon\Methods\Statuses\Polls
+    public function polls(): \MrWilsonsWorkshop\Mastodon\Methods\Statuses\Polls
     {
-        return new \Fundevogel\Mastodon\Methods\Statuses\Polls($this);
+        return new \MrWilsonsWorkshop\Mastodon\Methods\Statuses\Polls($this);
     }
 
 
     /**
-     * @return \Fundevogel\Mastodon\Methods\Statuses\ScheduledStatuses;
+     * @return \MrWilsonsWorkshop\Mastodon\Methods\Statuses\ScheduledStatuses;
      */
-    public function scheduledStatuses(): \Fundevogel\Mastodon\Methods\Statuses\ScheduledStatuses
+    public function scheduledStatuses(): \MrWilsonsWorkshop\Mastodon\Methods\Statuses\ScheduledStatuses
     {
-        return new \Fundevogel\Mastodon\Methods\Statuses\ScheduledStatuses($this);
+        return new \MrWilsonsWorkshop\Mastodon\Methods\Statuses\ScheduledStatuses($this);
     }
 }
