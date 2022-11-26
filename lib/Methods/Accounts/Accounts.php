@@ -94,7 +94,7 @@ class Accounts extends Method
      *
      * @return \Fundevogel\Mastodon\Entities\Account the user's own Account with Source
      */
-    public function updateCredentials(bool $discoverable = true, bool $bot = false, string $displayName = '', string $note, string $avatar = '', string $header = '', bool $locked = false, string $sourcePrivacy = '', bool $sourceSensitive = false, string $sourceLanguage = '', array $fieldAttributes = []): \Fundevogel\Mastodon\Entities\Account
+    public function updateCredentials(bool $discoverable = true, bool $bot = false, string $displayName = '', string $note = '', string $avatar = '', string $header = '', bool $locked = false, string $sourcePrivacy = '', bool $sourceSensitive = false, string $sourceLanguage = '', array $fieldAttributes = []): \Fundevogel\Mastodon\Entities\Account
     {
         $endpoint = "{$this->endpoint}/update_credentials";
 
